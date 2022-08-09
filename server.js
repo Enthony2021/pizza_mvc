@@ -7,8 +7,6 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-// Import função socket para conecxão
-const socketio = require('./public/js/socketioConnection')
 
 // Importe de Rotas
 const adminRoutes = require('./routes/adminRoutes')
@@ -28,15 +26,29 @@ app.use(express.json())
 // Public Path
 app.use(express.static('public'))
 
+// Client Connection middleware
+const clientConnection = (req, res, next) => {
+    io.on('connection', socket => {   
+
+        socket.broadcast.emit('mesaId', `${req.params.id}`)
+    })
+
+    next()
+}
+
+const adminConnection = (req, res, next) => {
+    io.on('connection', socket => {
+        console.log('Admin connectado!')
+    })
+
+    next()
+}
+
 
 // Rotas
-app.use('/admin', adminRoutes)
-app.use('/client', clientRoutes)
+app.use('/admin', adminConnection,adminRoutes)
+app.use('/client', clientConnection, clientRoutes)
 
 
-// Socket.io
-io.on('connection', socket => {
-    socketio(socket)
-})
 
 server.listen(3000, () => console.log('Servidor de pé em: http://localhost:3000'))
