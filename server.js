@@ -26,28 +26,33 @@ app.use(express.json())
 // Public Path
 app.use(express.static('public'))
 
-// Client Connection middleware
-const clientConnection = (req, res, next) => {
-    io.on('connection', socket => {   
 
-        socket.broadcast.emit('mesaId', `${req.params.id}`)
+const conexaoCli =  (req, res, next) => {
+    io.on('connection', async socket => {
+        const id = req.params
+        socket.broadcast.emit('mesaId', id)
+
+        // Recebendo chamada do cli
+        socket.on('chamada', chamada => {
+            socket.broadcast.emit('chamadaCli', chamada)
+        })
+
     })
 
     next()
 }
 
-const adminConnection = (req, res, next) => {
+const conexaoAdm =  (req, res, next) => {
     io.on('connection', socket => {
-        console.log('Admin connectado!')
+        console.log('Adm conectado!')
     })
 
     next()
 }
-
 
 // Rotas
-app.use('/admin', adminConnection,adminRoutes)
-app.use('/client', clientConnection, clientRoutes)
+app.use('/admin', conexaoAdm ,adminRoutes)
+app.use('/client', conexaoCli ,clientRoutes)
 
 
 

@@ -1,0 +1,23 @@
+<div class="client-home" class="client">
+    <h1>Client Área</h1>
+
+    {{#if idTable}}
+    <h2>Mesa <span id='mesa' >{{idTable}}</span></h2>
+    
+    <form id="garcon">
+        <input type="hidden" name="mesa" value={{idTable}}>
+        <button id="garcon" type="submit">Garçon</button>
+    </form>
+
+    <form id="conta">
+        <input type="hidden" name="mesa" value={{idTable}}>
+        <button id="conta" type="submit">Conta</button>
+    </form>
+
+    <form id="cardapio">
+        <input type="hidden" name="mesa" value={{idTable}}>
+        <button id="cardapio" type="submit">Cardápio</button>
+    </form>
+
+    {{/if}}
+</div>
