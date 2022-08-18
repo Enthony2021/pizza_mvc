@@ -27,32 +27,16 @@ app.use(express.json())
 app.use(express.static('public'))
 
 
-const conexaoCli =  (req, res, next) => {
-    io.on('connection', async socket => {
-        const id = req.params
-        socket.broadcast.emit('mesaId', id)
-
-        // Recebendo chamada do cli
+io.on('connection', socket => {
+            // Recebendo chamada do cli
         socket.on('chamada', chamada => {
             socket.broadcast.emit('chamadaCli', chamada)
         })
-
-    })
-
-    next()
-}
-
-const conexaoAdm =  (req, res, next) => {
-    io.on('connection', socket => {
-        console.log('Adm conectado!')
-    })
-
-    next()
-}
+})
 
 // Rotas
-app.use('/admin', conexaoAdm ,adminRoutes)
-app.use('/client', conexaoCli ,clientRoutes)
+app.use('/admin' ,adminRoutes)
+app.use('/client' ,clientRoutes)
 
 
 

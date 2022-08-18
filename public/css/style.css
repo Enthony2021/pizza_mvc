@@ -4,6 +4,49 @@
     background-color: red;
 }
 
-.client {
-    background-color: blue;
+body {
+    text-align: center;
+}
+
+.title {
+    margin-top: 10px;
+}
+
+.dashboard {
+    min-height: 80vh;
+    background-color: blueviolet;
+    padding: 20px;
+    gap: 20px;
+}
+
+.chamadas-box {
+    float: left;
+    display: inline;
+    margin: 20px 0px 0px 30px ;
+    width: 30%;
+    background-color: gray;
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.excluir-chamada {
+    display: inline-block;
+    height: 40px ;
+    width: 40px;
+    border-radius: 50%;
+    background-color: brown;
+}
+
+.chamada {  
+    display: inline-block;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 1.2em;
 }

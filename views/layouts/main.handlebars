@@ -13,12 +13,10 @@
 </head>
 
 <body>
+    {{!-- Conexão socket.io --}}
+    <script src="/js/index.js"></script>
 
-    <h1>Pizzaria André</h1>
-    <nav>
-        <a href="/admin">Admin</a>
-        <a href="/client">Client</a>
-    </nav>
+    <h1 class="title">Pizzaria André</h1>
 
     {{{body}}}
 
@@ -26,54 +24,8 @@
         <p>Enthony Stevie &copy; 2022</p>
     </footer>
 
-    <script type="text/javascript">
-        const socket = io('http://localhost:3000')
+    
 
-        // Mesas no Admin
-        let mesa1 = document.getElementsByClassName('m1')[0]
-        let mesa2 = document.getElementsByClassName('m2')[0]
-        let mesa3 = document.getElementsByClassName('m3')[0]
-
-        // Forms para chamada de cliente do Client
-        let garcon = document.getElementById('garcon')
-        let conta = document.getElementById('conta')
-        let cardapio = document.getElementById('cardapio')
-        const botaoChamadas = [garcon, conta, cardapio]
-
-        let chamadaTipo = ''
-        let chamadaMesa = ''
-
-        // Envio de Chamada pelo Client
-        addEventListener('submit', async (e) => {
-            e.preventDefault()
-            if (e.target.id === 'cardapio' || 'conta' || 'garcon') {
-                chamadaMesa = await e.target.children[0].value
-                chamadaTipo = await e.target.children[1].innerHTML
-                socket.emit('chamada', [chamadaMesa, chamadaTipo])   
-            }
-            
-        })
-
-        socket.on('mesaId', idTable => {
-            const idTab = Number(idTable)
-
-            if (idTab === 1 || mesa1.innerHTML) {
-                mesa1.innerHTML = 'Mesa 1 conectada!'
-            } else if (idTab === 2 || mesa2.innerHTML) {
-                mesa2.innerHTML = 'Mesa 2 conectada!'
-            } else if (idTab === 3 || mesa3.innerHTML) {
-                mesa3.innerHTML = 'Mesa 3 conectada!'
-            }
-        })
-
-        // Recebimento de chamada pelo Admin
-        socket.on('chamadaCli', socket => {
-            const mesa = socket[0]
-            const tipo = socket[1]
-            console.log(`A mesa ${mesa} está solicitando: ${tipo}`)
-        })
-
-    </script>
 </body>
 
 </html>
