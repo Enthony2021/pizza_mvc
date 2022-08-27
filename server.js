@@ -28,10 +28,15 @@ app.use(express.static('public'))
 
 
 io.on('connection', socket => {
-            // Recebendo chamada do cli
+        // Recebendo chamada do cli
         socket.on('chamada', chamada => {
             socket.broadcast.emit('chamadaCli', chamada)
         })
+
+        socket.on('retorno', retorno => {
+            socket.broadcast.emit('retornoAdm', retorno)
+        })
+
 })
 
 // Rotas

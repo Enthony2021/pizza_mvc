@@ -1,20 +1,30 @@
 * {
     padding: 0;
     margin: 0;
-    background-color: red;
 }
 
 body {
     text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .2));
+    background-image: url('../img/pizza.jpg');
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .title {
     margin-top: 10px;
+    font-size: 3em;
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 1px #fff;
 }
+
+
+/* No ADMIN */
 
 .dashboard {
     min-height: 80vh;
-    background-color: blueviolet;
+    background-color: rgba(0, 0, 0, .5);
     padding: 20px;
     gap: 20px;
 }
@@ -23,23 +33,39 @@ body {
     float: left;
     display: inline;
     margin: 20px 0px 0px 30px ;
-    width: 30%;
-    background-color: gray;
+    width: 21.5%;
+    background-color: rgba(0, 0, 0, .2);
     max-height: 50px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
     border-radius: 8px;
-    padding: 5px;
+    padding: 15px 5px;
+    font-size: 25px;
+    color: rgb(243, 255, 192);
+    font-weight: 100;
+    box-shadow: 2px 2px 2px 5px rgb(179, 255, 0);
+    transition: all 1s;
+}
+
+.chamadas-box:hover {
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .excluir-chamada {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px ;
     width: 40px;
     border-radius: 50%;
-    background-color: brown;
+    background-color: rgb(243, 255, 192);
+    transition: all 0.5s;
+}
+
+.excluir-chamada:hover {
+    background-color: rgb(255, 0, 0);
 }
 
 .chamada {  
@@ -50,3 +76,73 @@ body {
     font-weight: bold;
     font-size: 1.2em;
 }
+
+.lixeira-icon {
+    width: 70%;
+    height: 70%;
+}
+
+/* ______________________________________________ */
+/* ______________________________________________ */
+/* No CLIENT */
+
+.botao-chamada {
+    width: 50vw;
+    height: 18vh;
+    background-color: azure;
+    margin: 25px auto;
+    font-size: 180%;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 3px 3px 5px 5px black;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .5);
+    color: beige;
+}
+
+.client-home { 
+    position: relative;
+}
+
+.flash-message {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60vw;
+    height: 18vh;
+    color: aliceblue;
+    margin: 0 auto;
+    background-color: rgb(51, 51, 51);
+    box-shadow: 0px 0px 2px 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 450px) {
+    body {
+        overflow: scroll;
+    }
+
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px 0 ;
+    }
+
+    .chamadas-box {
+        width: 43vh;
+        margin: 0 auto;
+    }
+}
+

@@ -1,22 +1,21 @@
 <div class="client-home" class="client">
-    <h1>Client Área</h1>
 
     {{#if idTable}}
-    <h2>Mesa <span id='mesa' >{{idTable}}</span></h2>
+    <h1><span id='mesa' >{{idTable}}</span></h1>
     
     <form id="garcon">
         <input type="hidden" name="mesa" value={{idTable}}>
-        <button id="garcon" type="submit">Garçon</button>
+        <button id="garcon" type="submit" class="botao-chamada">Garçon</button>
     </form>
 
     <form id="conta">
         <input type="hidden" name="mesa" value={{idTable}}>
-        <button id="conta" type="submit">Conta</button>
+        <button id="conta" type="submit" class="botao-chamada">Conta</button>
     </form>
 
     <form id="cardapio">
         <input type="hidden" name="mesa" value={{idTable}}>
-        <button id="cardapio" type="submit">Cardápio</button>
+        <button id="cardapio" type="submit" class="botao-chamada">Cardápio</button>
     </form>
 
     {{/if}}
