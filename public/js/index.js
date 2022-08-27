@@ -1,1 +1,1 @@
-const socket = io('http://localhost:3000' || 'https://pizzaatendimento.herokuapp.com/')    
+const socket = io('https://pizzaatendimento.herokuapp.com/')    
