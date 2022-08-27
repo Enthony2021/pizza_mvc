@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
+const port = process.env.PORT || 3000
 
 
 // WebSocket
@@ -45,4 +46,4 @@ app.use('/client' ,clientRoutes)
 
 
 
-server.listen('https://pizzaatendimento.herokuapp.com/', () => console.log('Servidor de pé em: http://localhost:3000'))
+server.listen(port, () => console.log('Servidor de pé em: http://localhost:3000'))
