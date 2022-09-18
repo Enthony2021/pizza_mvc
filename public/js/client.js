@@ -3,6 +3,15 @@ let mesa = document.querySelector('span').innerHTML
 const retornoSom = new Audio('../sounds/somretorno.mp3')
 
 
+// Mostra carregamento de resposta
+const carregando = () => {
+    const loading = document.createElement('span')
+    loading.classList.add('loading')
+    loading.innerHTML = `<p>Loading...</p>`
+    clientHome.appendChild(loading)
+}
+
+
 // Envio de Chamada 
 document.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -25,7 +34,12 @@ socket.on('retornoAdm', socketData => {
         flashMessage.classList.add('flash-message')
         flashMessage.innerHTML = socketData[0]
         
+        carregando()
+
+
         setTimeout(() => {
+            const loadingBox = document.getElementsByClassName('loading')[0]
+            loadingBox.remove()
             clientHome.appendChild(flashMessage)
         }, 1900)
 
@@ -34,6 +48,4 @@ socket.on('retornoAdm', socketData => {
             flashMessage.remove()
         }, 5000)
     }
-
-
 })

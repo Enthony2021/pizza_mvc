@@ -19,7 +19,7 @@ const imprimeChamada = (mesa, tipo, id) => {
     boxChamada.appendChild(chamada)
     boxChamada.appendChild(lixeira)
 
-    chamada.innerHTML = `${mesa} - ${tipo}`
+    chamada.innerHTML = `<span class="mesa">${mesa}</span>  ${tipo}`
 }
 
 // Cria Id

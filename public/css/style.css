@@ -17,6 +17,7 @@ body {
     font-size: 3em;
     color: rgb(0, 0, 0);
     text-shadow: 3px 3px 1px #fff;
+    font-style: italic;
 }
 
 
@@ -41,12 +42,12 @@ body {
     align-items: flex-start;
     gap: 10px;
     border-radius: 8px;
-    padding: 15px 5px;
-    font-size: 25px;
+    padding: 15px 2px;
+    font-size: 22px;
     color: rgb(243, 255, 192);
     font-weight: 100;
-    box-shadow: 2px 2px 2px 5px rgb(179, 255, 0);
     transition: all 1s;
+    box-shadow: 2px 2px 2px 3px rgb(0, 0, 0);
 }
 
 .chamadas-box:hover {
@@ -60,8 +61,11 @@ body {
     height: 40px ;
     width: 40px;
     border-radius: 50%;
-    background-color: rgb(243, 255, 192);
+    background-color: transparent;
     transition: all 0.5s;
+    color: white;
+    top: 50%;
+    background-color: rgb(201, 255, 114);
 }
 
 .excluir-chamada:hover {
@@ -80,6 +84,18 @@ body {
 .lixeira-icon {
     width: 70%;
     height: 70%;
+}
+
+.mesa {
+    display: inline-block;
+    place-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgb(51, 4, 87);
+    color: antiquewhite;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 1px 1px white;
 }
 
 /* ______________________________________________ */
@@ -111,7 +127,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 60vw;
+    width: 65vw;
     height: 18vh;
     color: aliceblue;
     margin: 0 auto;
@@ -121,9 +137,24 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    font-size: 22px;
+    font-size: 5vw;
     line-height: 30px;
     font-weight: bolder;
+}
+
+.loading {
+    position: absolute;
+    width: 100vw;
+    height: 90vh;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    font-size: 8vw;
+    font-weight: 900;
 }
 
 
@@ -143,6 +174,11 @@ body {
     .chamadas-box {
         width: 43vh;
         margin: 0 auto;
+    }
+
+    .mesa {
+        height: 50px;
+        width: 50px;
     }
 }
 
